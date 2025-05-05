@@ -11,10 +11,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FIX SCENE/SceneNonVR.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/FIX SCENE/Kelas A.unity
+    guid: 6db852d282ddc6c42bc52e478aa2e3db
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bf65457b92974dd46831e96e47b9d46c, type: 2}
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: d0f80106443610944b83af22a3b60824, type: 2}
     Unity.XR.PICO.LivePreview.Settings: {fileID: 11400000, guid: f8c0abcde4a578b4c912fb70c36685e4, type: 2}
     Unity.XR.PXR.Settings: {fileID: 11400000, guid: c88b4edb0e3b5f24ab66ee46042b4164, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5b100b8b4a554624ca99bc4532ed1ea0, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: d053b78af2f2b874b9ceb8bdad327a6c, type: 2}

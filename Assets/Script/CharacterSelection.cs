@@ -33,6 +33,7 @@ public class CharacterSelection : NetworkBehaviour
             {
                 SpawnVRCharacter();
 
+
                 bool isCameraActive = cameraObject.activeSelf;
                 //textDebug.SetText("device: " + deviceModel + "camera? " + isCameraActive);
             }
@@ -50,24 +51,24 @@ public class CharacterSelection : NetworkBehaviour
         }
     }
 
-    private void LoadVRScene()
-    {
-        // Membuat SceneLoadData untuk scene VR
-        SceneLoadData sceneLoadData = new SceneLoadData("");
+    //private void LoadVRScene()
+    //{
+    //    // Membuat SceneLoadData untuk scene VR
+    //    SceneLoadData sceneLoadData = new SceneLoadData("");
 
-        // Memuat scene VR menggunakan FishNet SceneManager
-        SceneManager.LoadGlobalScenes(sceneLoadData);
-    }
+    //    // Memuat scene VR menggunakan FishNet SceneManager
+    //    SceneManager.LoadGlobalScenes(sceneLoadData);
+    //}
 
-    // Fungsi untuk memuat scene PC
-    private void LoadNonVRScene()
-    {
-        // Membuat SceneLoadData untuk scene PC
-        SceneLoadData sceneLoadData = new SceneLoadData("SceneNonVR");
+    //// Fungsi untuk memuat scene PC
+    //private void LoadNonVRScene()
+    //{
+    //    // Membuat SceneLoadData untuk scene PC
+    //    SceneLoadData sceneLoadData = new SceneLoadData("SceneNonVR");
 
-        // Memuat scene PC menggunakan FishNet SceneManager
-        SceneManager.LoadGlobalScenes(sceneLoadData);
-    }
+    //    // Memuat scene PC menggunakan FishNet SceneManager
+    //    SceneManager.LoadGlobalScenes(sceneLoadData);
+    //}
 
     // Called when the "Boy" button is clicked
     public void SpawnBoy()

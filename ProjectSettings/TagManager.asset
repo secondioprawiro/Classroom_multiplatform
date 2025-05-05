@@ -15,6 +15,9 @@ TagManager:
   - FxTemporaire
   - projectile
   - CameraStarter
+  - CameraNonVR
+  - CameraAll
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

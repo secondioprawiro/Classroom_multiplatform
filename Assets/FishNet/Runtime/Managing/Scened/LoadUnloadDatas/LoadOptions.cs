@@ -33,6 +33,8 @@ namespace FishNet.Managing.Scened
         /// True if scenes should be loaded using addressables. This field only exists for optional use so the user may know if their queue data is using addressables.
         /// </summary>
         public bool Addressables;
+
+        public bool DisallowStacking { get; set; }
     }
 
 

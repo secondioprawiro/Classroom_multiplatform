@@ -4,9 +4,13 @@ using UnityEngine;
 using FishNet;
 using System;
 using FishNet.Managing.Scened;
-
+using UnityEngine.SceneManagement;
+using UnitySceneManager = UnityEngine.SceneManagement.SceneManager;
+using FishNetSceneManager = FishNet.Managing.Scened.SceneManager;
 public class BootstrapManager : MonoBehaviour
 {
+    private bool sceneLoaded = false;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -16,38 +20,40 @@ public class BootstrapManager : MonoBehaviour
     {
         string deviceModel = SystemInfo.deviceModel;
         bool isVR = deviceModel.Contains("Pico");
+        Scene currentScene = UnitySceneManager.GetActiveScene();
 
-        if (InstanceFinder.IsServer)
+
+        if (!InstanceFinder.IsServerStarted || sceneLoaded)
             return;
 
-
-        if (isVR)
+        if (isVR && currentScene.name == "StarterScene")
         {
             LoadScene("Kelas A");
-            UnloadScene("StarterScene");
+            sceneLoaded = true;
         }
-        else
+        else if (!isVR && currentScene.name == "StarterScene")
         {
             LoadScene("SceneNonVR");
-            UnloadScene("StarterScene");
+            sceneLoaded = true;
         }
     }
 
-    void LoadScene(String sceneName)
+    void LoadScene(string sceneName)
     {
-        if (!InstanceFinder.IsServer)
+        if (!InstanceFinder.IsServerStarted)
             return;
 
-        SceneLoadData sld = new SceneLoadData();
+        SceneLoadData sld = new SceneLoadData(sceneName);
+        sld.ReplaceScenes = ReplaceOption.All;
         InstanceFinder.SceneManager.LoadGlobalScenes(sld);
     }
 
-    void UnloadScene(String sceneName)
-    {
-        if (!InstanceFinder.IsServer)
-            return;
+    //void UnloadScene(string sceneName)
+    //{
+    //    if (!InstanceFinder.IsServerStarted)
+    //        return;
 
-        SceneUnloadData sld = new SceneUnloadData();
-        InstanceFinder.SceneManager.UnloadGlobalScenes(sld);
-    } 
+    //    SceneUnloadData sld = new SceneUnloadData(sceneName);
+    //    InstanceFinder.SceneManager.UnloadGlobalScenes(sld);
+    //} 
 }
